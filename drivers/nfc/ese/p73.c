@@ -563,8 +563,10 @@ static int p61_probe(struct spi_device *spi)
     struct p61_spi_platform_data *platform_data = NULL;
     struct p61_spi_platform_data platform_data1;
     struct p61_dev *p61_dev = NULL;
+	platform_data->irq_gpio = 0;
+	platform_data->rst_gpio = 0;
 
-    P61_DBG_MSG("%s chip select : %d , bus number = %d \n",
+	P61_DBG_MSG("%s chip select : %d , bus number = %d \n",
             __FUNCTION__, spi->chip_select, spi->master->bus_num);
 
     ret = p61_parse_dt(&spi->dev, &platform_data1);
